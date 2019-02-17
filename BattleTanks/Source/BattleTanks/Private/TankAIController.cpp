@@ -3,6 +3,7 @@
 #include "Engine/World.h"
 #include "TankAIController.h"
 
+// Called when the game starts or when spawned
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -17,6 +18,20 @@ void ATankAIController::BeginPlay()
 		UE_LOG(LogTemp, Warning, TEXT("AI controller found plaer: %s"), *(ControlledTank->GetName()));
 	}
 
+}
+
+// Called every frame
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (GetPlayerTank())
+	{
+		//	TODO Move towards player
+
+		GetControlledTank()->AimAt(GetPlayerTank()->GetTargetLocation());
+
+		//	TODO Fire if ready
+	}
 }
 
 ATank * ATankAIController::GetControlledTank() const

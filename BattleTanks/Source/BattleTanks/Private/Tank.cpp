@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Tank.h"
+#include "../Public/Tank.h"
 
 
 // Sets default values
@@ -10,6 +11,8 @@ ATank::ATank()
 	PrimaryActorTick.bCanEverTick = true;
 
 }
+
+
 
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
@@ -32,3 +35,9 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
+void ATank::AimAt(FVector HitLocation)
+{
+	auto OurTankName = GetName();
+	UE_LOG(LogTemp, Warning, TEXT("%s is aiming at: %s"), *OurTankName, *HitLocation.ToString());
+
+}
