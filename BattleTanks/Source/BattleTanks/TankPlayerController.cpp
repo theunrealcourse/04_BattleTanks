@@ -25,7 +25,6 @@ void ATankPlayerController::BeginPlay()
 void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 	AimTowardsCrossHair();
 }
 

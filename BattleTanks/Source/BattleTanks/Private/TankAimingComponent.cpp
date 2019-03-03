@@ -42,8 +42,14 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		{
 			auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 			MoveBarrelTowards(AimDirection);
-			//	Get Barrel Rotation and set it locally
-			// Set Barrel rotation based on local variable 
+			auto Time = GetWorld()->GetTimeSeconds();
+			UE_LOG(LogTemp, Warning, TEXT("%f: Aim Solutin found"), Time);
+		}
+		else
+		{
+			auto Time = GetWorld()->GetTimeSeconds();
+			UE_LOG(LogTemp, Warning, TEXT("%f: No Aim Solve found"), Time);
+
 		}
 
 }
