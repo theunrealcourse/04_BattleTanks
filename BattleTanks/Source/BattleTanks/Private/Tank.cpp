@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "TankAimingComponent.h"
 #include "Tank.h"
-#include "../Public/Tank.h"
+//#include "../Public/Tank.h"
 
 
 // Sets default values
@@ -14,7 +15,6 @@ ATank::ATank()
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
 
 }
-
 
 
 // Called when the game starts or when spawned

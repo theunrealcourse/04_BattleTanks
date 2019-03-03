@@ -1,8 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "TankAIController.h"
 #include "Engine/World.h"
+#include "Tank.h"
+#include "TankAIController.h"
 
 // Called when the game starts or when spawned
 void ATankAIController::BeginPlay()
@@ -35,12 +36,12 @@ void ATankAIController::Tick(float DeltaTime)
 	}
 }
 
-ATank * ATankAIController::GetControlledTank() const
+ATank* ATankAIController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
 }
 
-ATank * ATankAIController::GetPlayerTank() const
+ATank* ATankAIController::GetPlayerTank() const
 {
 	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
 	if (!PlayerPawn) { return nullptr; }
