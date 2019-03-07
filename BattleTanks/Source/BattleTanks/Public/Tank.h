@@ -5,7 +5,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "Engine/World.h"
+
 #include "Tank.generated.h"
 
 class UTankBarrel;
