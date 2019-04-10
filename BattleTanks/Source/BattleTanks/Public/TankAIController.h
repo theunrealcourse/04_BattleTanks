@@ -20,7 +20,7 @@ protected:
 
 	// How close can the AI tank get to the player
 	UPROPERTY(EditAnywhere)
-		float AcceptanceRadius = 3000;
+	float AcceptanceRadius = 3000;
 
 private:
 	// Called when the game starts or when spawned
