@@ -39,6 +39,10 @@ void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick, FActo
 	}
 }
 
+EFiringState UTankAimingComponent::GetFiringState() const
+{
+	return FiringState;
+}
 
 void UTankAimingComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet)
 {
@@ -119,6 +123,8 @@ void UTankAimingComponent::Fire()
 		LastFireTime = FPlatformTime::Seconds();
 	}
 }
+
+
 
 bool UTankAimingComponent::IsBarrelMoving()
 {

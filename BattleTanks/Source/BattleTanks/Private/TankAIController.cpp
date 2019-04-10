@@ -27,8 +27,9 @@ void ATankAIController::Tick(float DeltaTime)
 	auto AimingComponent = ControlledTank->FindComponentByClass<UTankAimingComponent>();
 	AimingComponent->AimAt(PlayerTank->GetTargetLocation());
 
-	AimingComponent->Fire(); // Dont fire Every Frame
-
-	
+	if (AimingComponent->GetFiringState() == EFiringState::Locked)
+	{
+		AimingComponent->Fire(); // Dont fire Every Frame
+	}
 }
 
