@@ -10,7 +10,6 @@ void UTankMovementComponent::Initilise(UTankTrack * LeftTrackToSet, UTankTrack* 
 	RightTrack = RightTrackToSet;
 }
 
-
 void UTankMovementComponent::IntendMoveForward(float Throw)
 {
 	if (!ensure(LeftTrack && RightTrack)) { return; }

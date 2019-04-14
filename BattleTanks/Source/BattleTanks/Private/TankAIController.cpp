@@ -17,8 +17,8 @@ void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	auto PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
-	auto ControlledTank = GetPawn();
+	auto PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();	// Gets the Players Tank
+	auto ControlledTank = GetPawn();										// Gets the AI tank
 
 	if (!ensure(PlayerTank) && ControlledTank) { return; }
 	

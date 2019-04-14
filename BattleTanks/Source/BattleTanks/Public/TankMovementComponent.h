@@ -21,10 +21,10 @@ public:
 	void Initilise(UTankTrack * LeftTrackToSet, UTankTrack* RightTrackToSet);
 
 	UFUNCTION(BlueprintCallable, Category = "Input")
-		void IntendMoveForward(float Throw);
+	void IntendMoveForward(float Throw);
 	
 	UFUNCTION(BlueprintCallable, Category = "Input")
-		void IntendTurnRight(float Throw);
+	void IntendTurnRight(float Throw);
 
 private:
 	// Called from the pathfinding logic by the AI Controllers

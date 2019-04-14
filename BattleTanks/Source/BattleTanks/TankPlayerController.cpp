@@ -10,6 +10,7 @@
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
+
 	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
 	if (!ensure(AimingComponent)) { return; }
 	FoundAimingComponent(AimingComponent);
@@ -18,6 +19,7 @@ void ATankPlayerController::BeginPlay()
 void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
 	AimTowardsCrossHair();
 }
 
@@ -51,7 +53,6 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 		//	Line-trace along that LookDirection, and see what we hit (upto a max range)
 		return GetLookVectorHitLocation(LookDirection, HitLocation);
 	}
-
 	return false;
 }
 

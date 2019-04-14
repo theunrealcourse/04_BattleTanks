@@ -4,7 +4,6 @@
 #include "Engine/World.h"
 
 
-
 // Sets default values
 ATank::ATank()
 {

@@ -39,15 +39,15 @@ void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick, FActo
 	}
 }
 
-EFiringState UTankAimingComponent::GetFiringState() const
-{
-	return FiringState;
-}
-
 void UTankAimingComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet)
 {
 	Barrel = BarrelToSet;
 	Turret = TurretToSet;
+}
+
+EFiringState UTankAimingComponent::GetFiringState() const
+{
+	return FiringState;
 }
 
 void UTankAimingComponent::AimAt(FVector HitLocation)
@@ -106,8 +106,6 @@ void UTankAimingComponent::MoveTurretTowards(FVector AimDirection)
 
 void UTankAimingComponent::Fire()
 {
-
-
 	if (FiringState != EFiringState::Reloading)
 	{
 		// Spawn a Projectile at socket Location of barrel
@@ -123,8 +121,6 @@ void UTankAimingComponent::Fire()
 		LastFireTime = FPlatformTime::Seconds();
 	}
 }
-
-
 
 bool UTankAimingComponent::IsBarrelMoving()
 {
