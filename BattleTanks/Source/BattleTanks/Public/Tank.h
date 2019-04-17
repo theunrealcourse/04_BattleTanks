@@ -13,13 +13,11 @@ class BATTLETANKS_API ATank : public APawn
 
 public:
 	// called by the endine when damage is dealt
-	virtual float TakeDamage
-	(
-		float DamageAmount,
-		struct FDamageEvent const & DamageEvent,
-		class AController * EventInstigator,
-		AActor * DamageCauser
-	) override;
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEvent, class AController * EventInstigator, AActor * DamageCauser) override;
+
+	// Returns Current Health as a % of StartingHealth
+	UFUNCTION(BlueprintPure, Category = "Health")
+	float GetHealthPercent() const;
 
 private:
 	// Sets default values for this pawn's properties
