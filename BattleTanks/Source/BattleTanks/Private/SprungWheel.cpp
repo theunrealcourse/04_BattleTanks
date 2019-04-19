@@ -13,9 +13,6 @@ ASprungWheel::ASprungWheel()
 	PhysicsConstraint = CreateDefaultSubobject<UPhysicsConstraintComponent>(FName("Physics Constraint"));
 	SetRootComponent(PhysicsConstraint);
 
-	Mass = CreateDefaultSubobject<UStaticMeshComponent>(FName("Mass"));
-	Mass->SetupAttachment(PhysicsConstraint);
-
 	Wheel = CreateDefaultSubobject<UStaticMeshComponent>(FName("Wheel"));
 	Wheel->SetupAttachment(PhysicsConstraint);
 
@@ -26,11 +23,16 @@ ASprungWheel::ASprungWheel()
 void ASprungWheel::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	if (GetAttachParentActor())
-	{
 
-	}
+	SetupConstraints();
+}
+
+void ASprungWheel::SetupConstraints()
+{
+	if (!GetAttachParentActor()) { return; }
+	UPrimitiveComponent * BodyRoot = Cast< UPrimitiveComponent>(GetAttachParentActor()->GetRootComponent());
+	if (!BodyRoot) { return; }
+	PhysicsConstraint->SetConstrainedComponents(BodyRoot, NAME_None, Wheel, NAME_None);
 }
 
 // Called every frame
